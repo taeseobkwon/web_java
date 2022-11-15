@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원정보입력</title>
+</head>
+<body>
+<h3>NAVER</h3>
+<form action="insert2.jsp" method="get">
+아이디 <br>
+ <input type="text" name="id" /><br />
+비밀번호 <br> 
+ <input type="password" name="pwd" /><br />
+비밀번호 재확인 <br> 
+ <input type="password" name="pwd" /><br />
+이름 <br>
+ <input type="text" name="name" /><br />
+ 생년월일 <br>
+ <input name="year">
+ <select name="month">
+ 	<option value="1월">1월
+ 	<option value="2월">2월
+ 	<option value="3월">3월
+ 	<option value="4월">4월
+ 	<option value="5월">5월
+ 	<option value="6월">6월
+ 	<option value="7월">7월
+ 	<option value="8월">8월
+ 	<option value="9월">9월
+ 	<option value="10월">10월
+ 	<option value="11월">11월
+ 	<option value="12월">12월
+ </select>
+ <input name="day"> <br>
+성별 <br>
+<select name="gender">
+	<option value="male">남자
+	<option value="female">여자
+</select> <br>
+본인 확인 이메일(선택) <br>
+<input name="checkemail"> <br>
+휴대전화 <br>
+<select name="nation">
+<option value="kor">대한민국 +82
+<option value="us">미국 +1
+<option value="egypt">이집트 +20
+<option value="uk">영국 +44
+<option value="jp">일본 +81
+
+</select> <br>
+<input name="phone"> <br>
+관심사 <br>
+
+	<input type="checkbox" name="hobby" value="cafe" />카페
+	<input type="checkbox" name="hobby" value="mail" />메일
+	<input type="checkbox" name="hobby" value="news" />뉴스
+	<input type="checkbox" name="hobby" value="book" />서적
+	<input type="checkbox" name="hobby" value="shopping" />쇼핑 <br/>
+
+하고싶은말 : <br/>
+	<textarea rows="5" cols="10" name="intro"></textarea> <br/>
+	
+	<button type="submit">가입하기</button>
+	<button type="reset">지우기</button>
+
+
+</form>
+</body>
+</html>
