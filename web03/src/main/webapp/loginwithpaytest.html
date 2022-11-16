@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+$(function() {
+	$('#b1').click(function() {
+		x2 = 100
+		moneyValue = $('#money').val()
+		choiceValue = $('#choice').val()
+		//원하는 곳에서 아무때나 페이지를 넘기지 않고, 서버와
+		//통신하고자 하는 경우 ajax(비동기통신)
+		$.ajax({
+			url : 'moneys.jsp',
+			data : {
+				money : moneyValue,
+				choice : choiceValue
+			},
+			success : function(x) { //x=jsp파일의 실행결과
+				alert('서버와의 통신 성공')
+				$('div').html('<font color=red>응답받은 내용: ' + "결제금액은 " + x + '</font>')
+			}
+		})
+	})
+	$('#b2').click(function() {
+		idValue = $('#id').val()
+		//원하는 곳에서 아무때나 페이지를 넘기지 않고, 서버와
+		//통신하고자 하는 경우 ajax(비동기통신)
+		$.ajax({
+			url : 'idCheck.jsp',
+			data : {
+				id : idValue
+			},
+			success : function(x) { //x=jsp파일의 실행결과
+				alert('서버와의 통신 성공')
+				alert('응답받은 내용: ' + x)
+				$('div').html('<font color=red>응답받은 내용: ' + x + '</font>')
+			}
+		})
+	})
+	$('#b3').click(function() {
+		phoneValue = $('#phone').val()
+		//원하는 곳에서 아무때나 페이지를 넘기지 않고, 서버와
+		//통신하고자 하는 경우 ajax(비동기통신)
+		$.ajax({
+			url : 'phone.jsp',
+			data : {
+				tel : phoneValue
+			},
+			success : function(x) { //x=jsp파일의 실행결과
+				alert('서버와의 통신 성공')
+				$('div').html('<font color=red>인증문자: ' + x + '</font>')
+				x2 = x.trim()
+			}
+		})
+	})
+	$('#b4').click(function() {
+		checkValue = $('#check').val()
+		alert(x2 + " " + checkValue)
+		if (x2 == checkValue) {
+			$('div').html('<font color=red>본인인증완료</font>')
+		}else{
+			$('div').html('<font color=red>본인인증실패</font>')
+		}
+	})
+})
+
+
+
+
+
+
+</script>
+</head>
+<body>
+<h3>회원가입하고 결제해보기</h3>
+<table border="1">
+<tr>
+<td>결제금액</td>
+<td colspan="2"><input id="money" placeholder="계좌이체시 1000원 할인, 신용카드시 2000원 추가" style="width:300px;"></td>
+</tr>
+<tr>
+<td>결제수단</td>
+<td> <select id="choice">
+<option value="1.계좌이체">1.계좌이체
+<option value="2.신용카드">2.신용카드
+<option value="3.휴대폰결제">3.휴대폰결제
+</select></td>
+<td><button id="b1">결제하기</button>
+</td>
+<tr>
+<td>회원가입할 id입력</td>
+<td><input id="id"></td>
+<td><button id="b2">중복체크</button></td> 
+</tr>
+<tr>
+<td>전화번호</td>
+<td><input id="phone"></td>
+<td><button id="b3">인증번호받기</button></td> 
+</tr>
+<tr>
+<td>인증번호확인</td>
+<td><input id="check"></td>
+<td><button id="b4">인증번호확인</button></td> 
+</tr>
+</table>
+<div></div>
+</body>
+</html>

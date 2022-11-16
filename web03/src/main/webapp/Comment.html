@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script 
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+</script>
+
+<script>
+	$(function() {
+		$('#b1').click(function() {
+			commValue = $('#comm').val()
+			resultTag = $('#result')
+			resultTag.append(commValue + '<br>')
+		})
+	
+	})
+	$(function() {
+		$('#b2').click(function() {
+			commValue = $('#comm').val()
+			resultTag = $('#result')
+			resultTag.append("<img src=img/winter.gif width='200' height='200'> <br>")
+		})
+	
+	})
+	$(function() {
+		$('#b3').click(function() {
+			commValue = $('#comm').val()
+			resultTag = $('#result')
+			resultTag.append(commValue + "<img src=img/winter.gif width='200' height='200'> <br>")
+		})
+	
+	})
+	
+</script>
+
+
+</head>
+<body>
+입력내용 : <input name='comment' id='comm'>
+<button id='b1'>글자추가</button>
+<button id='b2'>이미지추가</button>
+<button id='b3'>글자+이미지추가</button> <hr>
+<div id=result></div>
+</body>
+</html>

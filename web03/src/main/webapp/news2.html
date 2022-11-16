@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+	$(function() {
+		$('#b1').click(function() {
+			$('div').empty()
+			$.ajax({
+				url : 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fdart.fss.or.kr%2Fapi%2FtodayRSS.xml&api_key=ejxvkemry0qjivbotntyvygzajjtuawoqoituggy',
+						
+				data : {
+					url : "https://dart.fss.or.kr/api/todayRSS.xml",
+					api_key : "rooa9cfdnkctmsnpiftxnozlzfyaunxvudzwajoq",
+					count : 80
+				},						
+				success : function(x) { 
+					//alert('응답받은 내용: ' + x)
+					list = x.items
+					//alert(list.length)
+					for (var i = 0; i < list.length; i++) {
+						t = list[i].title
+						p = list[i].pubDate
+						l = list[i].link
+						a = "<a href= " + l + ">" + t + "</a>"
+						$('div').append(a + "--> " + p + " <br>")
+					}
+				} //success
+			}) //ajax
+		}) //b1
+		$('#b2').click(function() {
+			$('div').empty()
+			$.ajax({
+				url : ' https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fdart.fss.or.kr%2Fapi%2FcompanyRSS.xml%3FcrpCd%3D00126380&api_key=ejxvkemry0qjivbotntyvygzajjtuawoqoituggy',
+				data : {
+					url : "https://dart.fss.or.kr/api/companyRSS.xml?crpCd=00126380l",
+					api_key : "ejxvkemry0qjivbotntyvygzajjtuawoqoituggy",
+					count : 10
+				},						
+				success : function(x) { 
+					//alert('응답받은 내용: ' + x)
+					list = x.items
+					//alert(list.length)
+					for (var i = 0; i < list.length; i++) {
+						t = list[i].title
+						p = list[i].pubDate
+						l = list[i].link
+						a = "<a href= " + l + ">" + t + "</a>"
+						$('div').append(a + "--> " + p + "<br>")
+					}
+				} //success
+			}) //ajax
+		}) //b2
+		$('#b3').click(function() {
+			$('div').empty()
+			$.ajax({
+				url : 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fdart.fss.or.kr%2Fapi%2FcompanyRSS.xml%3FcrpCd%3D01133217&api_key=ejxvkemry0qjivbotntyvygzajjtuawoqoituggy',
+				data : {
+					url : "https://dart.fss.or.kr/api/companyRSS.xml?crpCd=01133217",
+					api_key : "ejxvkemry0qjivbotntyvygzajjtuawoqoituggy",
+					count : 20
+				},						
+				success : function(x) { 
+					//alert('응답받은 내용: ' + x)
+					list = x.items
+					//alert(list.length)
+					for (var i = 0; i < list.length; i++) {
+						t = list[i].title
+						p = list[i].pubDate
+						l = list[i].link
+						a = "<a href= " + l + ">" + t + "</a>"
+						$('div').append(a + "--> " + p + " " + l + "<br>")
+					}
+				} //success
+			}) //ajax
+		}) //b3
+		$('#b4').click(function() {
+			$('div').empty()
+			$.ajax({
+				url : 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.chosun.com%2Farc%2Foutboundfeeds%2Frss%2Fcategory%2Fsports%2F%3FoutputType%3Dxml&api_key=ejxvkemry0qjivbotntyvygzajjtuawoqoituggy',
+				data : {
+					url : "https://www.chosun.com/arc/outboundfeeds/rss/category/sports/?outputType=xml",
+					api_key : "ejxvkemry0qjivbotntyvygzajjtuawoqoituggy",
+					count : 20
+				},						
+				success : function(x) { 
+					//alert('응답받은 내용: ' + x)
+					list = x.items
+					//alert(list.length)
+					for (var i = 0; i < list.length; i++) {
+						t = list[i].title
+						p = list[i].pubDate
+						l = list[i].link
+						img = list[i].thumbnail
+						tag = "<img src=" + img + " width=150 height=150"
+						a = "<a href=" + l + ">" + t + "</a>"
+						$('div').append(tag + "<br>" + a + "--> " + p + "<br>")
+					}
+				} //success
+			}) //ajax
+		}) //b4
+	}) //$
+</script>
+</head>
+<body bgcolor="white">
+	기업정보공시 <br>
+	<button id='b1'> <img alt="" src="img/sto.jpg" width="150" height="150" > </button>
+	<button id='b2'> <img alt="" src="img/sam.jpg" width="150" height="150" > </button>
+	<button id='b3'> <img alt="" src="img/kakao.png" width="150" height="150"> </button>
+	<button id='b4'> <img alt="" src="img/chosun.png" width="150" height="150"> </button>
+	<hr color="green">
+	<div id="result"></div>
+</body>
+</html>

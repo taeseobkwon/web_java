@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script 
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+</script>
+
+<script>
+//$ ==> body태그의미, $() ==> body부분부터 먼저 읽어서 램에 준비시켜줘
+	$(function() {
+		$('#b1').click(function() {
+			food = $('#food').val() // ==> id가 유저인 태그의 입력값(value)을 가져옴
+			where = $('#where').val()
+			alert('당신이 먹고 싶은 음식은 ' + food + '이고 가고 싶은 곳은 ' + where + ' 입니다.')
+		})
+	})
+	$(function() {
+		$('#b2').click(function() {
+			site = $('#site').val()
+			if (site == 'movie') {
+				location.href = "http://www.cgv.co.kr"
+			} else {
+				location.href = "http://movie.interpark.com/movie/"
+			}
+		})
+	})
+	
+	
+</script>
+</head>
+<body>
+먹고 싶은 음식 입력 : <input id='food'> <br>
+가고 싶은 곳 입력 : <input id='where'> <br>
+<button id='b1'>버튼 1번</button>
+<hr>
+내가 많이 들어가는 사이트 : <input id = site> <br>
+<button id='b2'>버튼 2번</button>
+
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+</script>
+
+<script>
+	$(function() { //익명함수
+		$('#b1').click(function() {
+			$.ajax({
+				url : "data/rank.xml",
+				success : function(x) {
+					alert('성공,받은 데이터는 ' + x)
+					$('#d1').html('성공, 받은 데이터는 ' + x + "<br>")
+					list = $(x).find('rank') //find결과가 여러개 => 배열
+					alert(list.length + "개")
+					for (var i = 0; i < list.length; i++) {
+						name = $(list[i]).find('name').text()
+						tel = $(list[i]).find('tel').text()
+						$('#d1').append(name + ", "  + tel + "<br>")
+					}
+				} ,
+				error : function(e) {
+					alert('실패, 실패의 내용' + e)
+				} //error
+			}) //ajax
+		}) //b1
+		$('#b2').click(function() {
+			$.ajax({
+				url : "data/rank.json",
+				success : function(x) {
+					alert('성공,받은 데이터는 ' + x)
+					$('#d2').html('성공, 받은 데이터는 ' + x + "<br>")
+					list = x.rank //받은 데이터에서 rank키의 값을 가져 온다.
+					alert(list.length + "개")
+					for (var i = 0; i < list.length; i++) {
+						n = list[i].name
+						t = list[i].tel
+						$('#d2').append(n + ', ' + t + '<br>')
+					}
+				} ,
+				error : function(e) {
+					alert('실패, 실패의 내용' + e)
+				} //error
+			}) //ajax
+		}) //b2
+		$('#b3').click(function() {
+			$.ajax({
+				url : "data/rank3.xml",
+				success : function(x) {
+					alert('성공,받은 데이터는 ' + x)
+					$('#d3').html('성공, 받은 데이터는 ' + x + "<br>")
+					list = $(x).find('winner') //find결과가 여러개 => 배열
+					alert(list.length + "개")
+					for (var i = 0; i < list.length; i++) {
+						year = $(list[i]).find('year').text()
+						classs = $(list[i]).find('classs').text()
+						name = $(list[i]).find('name').text()
+						field = $(list[i]).find('field').text()
+						$('#d3').append(year + ", "  + classs + ", "  + name + ", "  + field + "<br>")
+					}
+				} ,
+				error : function(e) {
+					alert('실패, 실패의 내용' + e)
+				} //error
+			}) //ajax
+		}) //b3
+		$('#b4').click(function() {
+			$.ajax({
+				url : "data/dataset.xml",
+				success : function(x) {
+					alert('성공,받은 데이터는 ' + x)
+					$('#d4').html('성공, 받은 데이터는 ' + x + "<br>")
+					list = $(x).find('record') //find결과가 여러개 => 배열
+					alert(list.length + "개")
+					for (var i = 0; i < list.length; i++) {
+						id = $(list[i]).find('id').text()
+						first_name = $(list[i]).find('first_name').text()
+						last_name = $(list[i]).find('last_name').text()
+						email = $(list[i]).find('email').text()
+						gender = $(list[i]).find('gender').text()
+						$('#d4').append(id + ", "  + first_name + ", "  + last_name + ", "  + email + ", " + gender + "<br>")
+					}
+				} ,
+				error : function(e) {
+					alert('실패, 실패의 내용' + e)
+				} //error
+			}) //ajax
+		}) //b4
+		b
+	}) //$
+</script>
+
+</head>
+<body>
+<!-- a태그는 호출하면 페이지가 순서대로 넘어가는 동기통신 -->
+<!-- <a href="ok.html">공공데이터 포탈 요청</a> <br>
+<a href="tour.html">주변맛집 정보 요청</a> <br>
+<a href="weather.html">기상청 정보 요청</a> <br> -->
+<button id="b1">XML받아오기</button>
+<button id="b2">JSON받아오기</button>
+<button id="b3">XML받아오기2</button>
+<button id="b4">캥거루</button>
+<button id="b5">JSON캥거루</button>
+<hr>
+<div id="d1" style="background: yellow;"></div> <br>
+<div id="d2" style="background: pink;"></div> <br>
+<div id="d3" style="background: aqua;"></div>
+<div id="d4" style="background: lime;"></div>
+<div id="d5" style="background: orange;"></div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+</script>
+
+<script>
+//body부분을 DOM-Tree로 읽어서 준비가 되면, 
+//입력값으로 있는 익명함수를 실행해주세요.!
+	$(function() {
+		//button이 클릭이 되면, 함수부분을 호출(콜백함수)
+		//html태그 중에서 선택할 수 있는 방법3가지(태그명, 클래스명, id명)
+		$('button').click(function() {
+			want = $("#want").val()
+			location.href = "https://search.shopping.naver.com/search/all?where=all&frm=NVSCTAB&query=" + want
+		})
+	})
+</script>
+
+</head>
+<body>
+당신이 사고 싶은 것은<br>
+<input id="want">
+<button>살래!</button>
+</body>
+</html>
